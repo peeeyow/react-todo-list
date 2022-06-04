@@ -5,7 +5,7 @@ import { useState } from "react";
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const onEditHandler = (newToDo) => {
+  const onEditToDoHandler = (newToDo) => {
     setTodos((previousToDos) => {
       for (const todo of previousToDos) {
         if (todo.id === newToDo.id) {
@@ -15,10 +15,23 @@ function App() {
       return todos;
     });
   };
+  const onAddToDoHandler = (newToDo) => {
+    setTodos((previousToDos) => [newToDo, ...previousToDos]);
+  };
+  const onDeleteToDoHandler = (todoID) => {
+    setTodos((previousToDos) =>
+      previousToDos.filter((todo) => todo.id !== todoID)
+    );
+  };
 
   return (
     <div className="App">
-      <ToDos todos={todos} onEdit={onEditHandler} />
+      <ToDos
+        todos={todos}
+        onEditToDo={onEditToDoHandler}
+        onAddToDo={onAddToDoHandler}
+        onDeleteToDo={onDeleteToDoHandler}
+      />
     </div>
   );
 }

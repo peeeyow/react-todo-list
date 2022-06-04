@@ -5,6 +5,7 @@ export default function ToDoItemView(props) {
     <>
       <input type="checkbox" onChange={props.onTick} />
       <span>{props.done ? <s>{props.name}</s> : props.name}</span>
+      <Button onClick={props.onClickDelete}>Delete</Button>
       <Button onClick={props.onClickEdit}>Edit</Button>
     </>
   );

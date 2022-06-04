@@ -33,7 +33,7 @@ export default function ToDoItem(props) {
       done={done}
       onTick={onTickHandler}
       onClickEdit={onClickEditHandler}
-      oncClickDelete={onClickDeleteHandler}
+      onClickDelete={onClickDeleteHandler}
     />
   );
   const edit = (

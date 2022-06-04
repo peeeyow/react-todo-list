@@ -9,5 +9,5 @@
   background-color: var(--one-dark-green);
   color: var(--one-dark-black);
 
-  border: 1px solid red;
+  border: 1px solid var(--one-dark-magenta);
 }
