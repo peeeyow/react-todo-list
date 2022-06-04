@@ -1,0 +1,13 @@
+.todo {
+  max-width: 95%;
+  width: clamp(50rem, 50rem, 95%);
+  margin: 2rem auto;
+
+  font-size: calc(10px + 2vmin);
+  border-radius: 1rem;
+
+  background-color: var(--one-dark-green);
+  color: var(--one-dark-black);
+
+  border: 1px solid red;
+}
