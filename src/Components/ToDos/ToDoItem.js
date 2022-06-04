@@ -1,7 +1,7 @@
 import "./ToDoItem.css";
 import Card from "../UI/Card";
 import ToDoItemView from "./ToDoItemView";
-import ToDoItemEdit from "./ToDoItemEdit";
+import ToDoForm from "../NewToDo/ToDoForm";
 import { useState } from "react";
 
 export default function ToDoItem(props) {
@@ -17,6 +17,9 @@ export default function ToDoItem(props) {
   const onClickEditHandler = () => {
     setEditMode(true);
   };
+  const onClickDeleteHandler = () => {
+    props.onDelete(props.item.id);
+  };
   const onCancelHandler = () => {
     setEditMode(false);
   };
@@ -30,10 +33,11 @@ export default function ToDoItem(props) {
       done={done}
       onTick={onTickHandler}
       onClickEdit={onClickEditHandler}
+      oncClickDelete={onClickDeleteHandler}
     />
   );
   const edit = (
-    <ToDoItemEdit
+    <ToDoForm
       name={props.item.name}
       onCancel={onCancelHandler}
       onSave={onSaveHandler}
