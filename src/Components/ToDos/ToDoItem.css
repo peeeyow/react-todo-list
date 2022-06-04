@@ -6,7 +6,9 @@
 .todo-item__content {
   padding: 0.5rem 0.5rem;
 
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--one-dark-blue);
   color: var(--one-dark-gray);
 }
