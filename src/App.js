@@ -1,21 +1,24 @@
 import "./App.css";
-import uuid from "react-uuid";
-import ToDo from "./Components/ToDos/ToDo";
+import ToDos from "./Components/ToDos/ToDos";
 import { useState } from "react";
 
 function App() {
-  const INITIAL_TODOS = [
-    {
-      id: uuid(),
-      name: "Study react",
-    },
-  ];
+  const [todos, setTodos] = useState([]);
 
-  const [todos, setTodos] = useState(INITIAL_TODOS);
+  const onEditHandler = (newToDo) => {
+    setTodos((previousToDos) => {
+      for (const todo of previousToDos) {
+        if (todo.id === newToDo.id) {
+          todo.name = newToDo.name;
+        }
+      }
+      return todos;
+    });
+  };
 
   return (
     <div className="App">
-      <ToDo todos={todos} />
+      <ToDos todos={todos} onEdit={onEditHandler} />
     </div>
   );
 }
