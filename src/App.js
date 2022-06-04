@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import uuid from "react-uuid";
+import ToDo from "./Components/ToDos/ToDo";
+import { useState } from "react";
 
 function App() {
+  const INITIAL_TODOS = [
+    {
+      id: uuid(),
+      name: "Study react",
+    },
+  ];
+
+  const [todos, setTodos] = useState(INITIAL_TODOS);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToDo todos={todos} />
     </div>
   );
 }
